@@ -7,7 +7,7 @@ import UnoGame.vista.*;
 
 public class UnoMain {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Mesa modelo = new Mesa();
 		VistaConsola vista = new VistaConsola();
 		Controlador controlador = new Controlador(modelo, vista);

@@ -23,7 +23,8 @@ public class Carta {
 		return tipo;
 	}
 	
-	public String mostrarCarta() {
+	@Override
+	public String toString() {
 		String s;
 		if (this.color != null) 
 			s = tipo.getValor() + " - " + color.getValor();

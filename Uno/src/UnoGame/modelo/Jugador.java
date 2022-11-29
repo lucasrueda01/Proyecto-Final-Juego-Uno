@@ -1,14 +1,20 @@
 package UnoGame.modelo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Jugador {
 	private String nombre;
-	private boolean turno = false;
-	private List<Carta> mano;
+	private int numeroJugador;
+	private ArrayList<Carta> mano;
+	private static int contadorJugador = 0;
+	private int puntaje;
 	
 	public Jugador(String nombre) {
 		this.setNombre(nombre);
+		Jugador.contadorJugador++;
+		this.numeroJugador = Jugador.contadorJugador;
+		mano = new ArrayList<Carta>();
+		this.puntaje = 0;
 	}
 
 	public String getNombre() {
@@ -19,14 +25,22 @@ public class Jugador {
 		this.nombre = nombre;
 	}
 
-	public boolean isTurno() {
-		return turno;
-	}
-
-	public void setTurno(boolean turno) {
-		this.turno = turno;
+	public int getNumeroJugador() {
+		return numeroJugador;
 	}
 	
+	public void sumarPuntos(int puntos) {
+		this.puntaje += puntos;
+	}
+	
+	public int getPuntaje() {
+		return this.puntaje;
+	}
+
+	public ArrayList<Carta> getMano() {
+		return mano;
+	}
+
 	public void addCarta(Carta c) {
 		mano.add(c);
 	}
@@ -34,4 +48,9 @@ public class Jugador {
 	public Carta quitarCarta(int i) {
 		return mano.remove(i);
 	}
+	
+	public Carta getCarta(int i) {
+		return mano.get(i);
+	}
+		
 }
